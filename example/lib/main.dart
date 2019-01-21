@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:star_rating/star_rating.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(StarRatingDemo());
 
-class MyApp extends StatelessWidget {
+class StarRatingDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(title: 'Star Rating Demo Home Page'),
       debugShowCheckedModeBanner: false,
-      debugShowMaterialGrid: true,
     );
   }
 }
