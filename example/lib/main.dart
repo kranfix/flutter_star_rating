@@ -7,11 +7,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Star Rating Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Star Rating Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: true,
     );
   }
 }
@@ -32,12 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementHalfStar() {
     setState(() {
       _rating += 0.5;
+      if (_rating > starLength) {
+        _rating = starLength.toDouble();
+      }
     });
   }
 
   void _decrementHalfStar() {
     setState(() {
       _rating -= 0.5;
+      if (_rating < 0.0) {
+        _rating = 0.0;
+      }
     });
   }
 
@@ -52,22 +60,21 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Rating: $_rating',
+              'Rating: $_rating / ${starLength.toDouble()}',
               style: Theme.of(context).textTheme.display1,
             ),
-            Center(
-              child: StarRating(
-                length: starLength,
-                rating: _rating,
-                between: 5.0,
-                starSize: 30.0,
-                onRaitingTap: (rating) {
-                  print('Clicked rating: $rating');
-                  setState(() {
-                    _rating = rating;
-                  });
-                },
-              ),
+            StarRating(
+              mainAxisAlignment: MainAxisAlignment.center,
+              length: starLength,
+              rating: _rating,
+              between: 5.0,
+              starSize: 30.0,
+              onRaitingTap: (rating) {
+                print('Clicked rating: $rating / $starLength');
+                setState(() {
+                  _rating = rating;
+                });
+              },
             ),
           ],
         ),

@@ -11,6 +11,9 @@ class StarRating extends StatelessWidget {
   final double starSize;
   final RatingTapCallback onRaitingTap;
   final Color color;
+  final MainAxisAlignment mainAxisAlignment;
+  final CrossAxisAlignment crossAxisAlignment;
+
   final Icon _full, _half, _empty;
 
   StarRating({
@@ -20,6 +23,8 @@ class StarRating extends StatelessWidget {
     this.starSize: 20.0,
     this.color: Colors.blueAccent,
     this.onRaitingTap,
+    this.mainAxisAlignment,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
   })  : _full = Icon(Icons.star, color: color, size: starSize),
         _half = Icon(Icons.star_half, color: color, size: starSize),
         _empty = Icon(Icons.star_border, color: color, size: starSize);
@@ -41,7 +46,11 @@ class StarRating extends StatelessWidget {
       );
     }
 
-    return Row(children: stars);
+    return Row(
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment,
+      children: stars,
+    );
   }
 
   Icon chooseStar(int index) =>
