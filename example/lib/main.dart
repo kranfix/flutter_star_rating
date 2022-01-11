@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:star_rating/star_rating.dart';
 
-void main() => runApp(StarRatingDemo());
+void main() => runApp(const StarRatingDemo());
 
 class StarRatingDemo extends StatelessWidget {
+  const StarRatingDemo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,14 +13,14 @@ class StarRatingDemo extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Star Rating Demo Home Page'),
+      home: const MyHomePage(title: 'Star Rating Demo Home Page'),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -52,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Star Rating Example'),
+        title: const Text('Star Rating Example'),
       ),
       body: Center(
         child: Column(
@@ -60,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               'Rating: $_rating / ${starLength.toDouble()}',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
             StarRating(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,12 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
           FloatingActionButton(
             onPressed: _incrementHalfStar,
             tooltip: 'Increment',
-            child: Icon(Icons.arrow_drop_up),
+            child: const Icon(Icons.arrow_drop_up),
           ),
           FloatingActionButton(
             onPressed: _decrementHalfStar,
             tooltip: 'Decrement',
-            child: Icon(Icons.arrow_drop_down),
+            child: const Icon(Icons.arrow_drop_down),
           ),
         ],
       ),
