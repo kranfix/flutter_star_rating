@@ -4,7 +4,7 @@ import 'package:star_rating/star_rating.dart';
 void main() => runApp(const StarRatingDemo());
 
 class StarRatingDemo extends StatelessWidget {
-  const StarRatingDemo({Key? key}) : super(key: key);
+  const StarRatingDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +20,17 @@ class StarRatingDemo extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({required this.title, super.key});
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   final int starLength = 7;
-  double _rating = 0.0;
+  double _rating = 0;
 
   void _incrementHalfStar() {
     setState(() {
@@ -62,14 +62,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               'Rating: $_rating / ${starLength.toDouble()}',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             StarRating(
               mainAxisAlignment: MainAxisAlignment.center,
               length: starLength,
               rating: _rating,
-              between: 5.0,
-              starSize: 30.0,
+              between: 5,
+              starSize: 30,
               onRaitingTap: (rating) {
                 print('Clicked rating: $rating / $starLength');
                 setState(() {
