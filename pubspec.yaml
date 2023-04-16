@@ -3,11 +3,11 @@ description: >
   A customizable Flutter widget to rating with stars.
   You are able to set color, size, number and space
   between stars.
-version: 0.10.0
+version: 0.11.0
 homepage: https://github.com/kranfix/flutter_star_rating
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,5 +16,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  very_good_analysis: ^4.0.0
 
 flutter:
